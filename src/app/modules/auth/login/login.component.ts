@@ -1,3 +1,6 @@
+import { UserService } from './../../../store/service/user.service';
+import { UserStoreFacade } from './../../../store/store-facade/user-store-facade';
+import { User } from './../../../store/model/user.i';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  users: User[] = [];
+
+  constructor(private userStoreFacade: UserStoreFacade, private userService: UserService) {
+
+    console.log(userService.getUser())
+    
+
+    userStoreFacade.getAll();
+
+    userStoreFacade.selectUserFeature().subscribe(
+      userFeature => {
+        this.users = userFeature.users;
+        
+      }
+    )
+  }
 
   ngOnInit(): void {
   }

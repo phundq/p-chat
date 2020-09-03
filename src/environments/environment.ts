@@ -10,7 +10,9 @@ export const environment = {
     databaseURL: 'https://p-chat-c976f.firebaseio.com',
     projectId: 'p-chat-c976f',
     storageBucket: 'p-chat-c976f.appspot.com',
-    messagingSenderId: '925858112180'
+    messagingSenderId: '925858112180',
+    appId: '1:925858112180:web:c53c6b163f50d82572ede1',
+    measurementId: 'G-PGVQ1JNNP0'
 }
 };
 

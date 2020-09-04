@@ -8,6 +8,7 @@ import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AuthModule } from './modules/auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { AppComponent } from './app.component';
     AppStoreModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AuthModule,
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]

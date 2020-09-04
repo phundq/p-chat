@@ -1,6 +1,7 @@
+import { getAllUser, getAllUserSuccess } from './../action/user.action';
 import { User } from './../model/user.i';
-import { EUser } from '../action/user.action';
-import { Action, props } from '@ngrx/store';
+import { createReducer, on } from '@ngrx/store';
+import * as UserAction from '../action/user.action';
 export interface UserState{
     users?: User[],
     currentUser?: User,
@@ -12,10 +13,9 @@ const initUserState: UserState = {
     isLoading: false
 }
 
-export function userReducer(state = initUserState, action: Action): UserState{
-    switch(action.type){
-        case EUser.GET_ALL: return {...state, isLoading: true};
-        case EUser.GET_ALL_SUCESS: return {...state, isLoading: true};
-        default: return state;
-    }
-}
+export const userReducer = createReducer<UserState>(
+    initUserState,
+    on(UserAction.getAllUser, state => ({...state, isLoading: true})),
+    on(UserAction.getAllUserSuccess, (state, { users}) => ({...state, isLoading: false, users: users})),
+    on(UserAction.getAllUserFail, (state,{message}) => ({...state, isLoading: false, errorMessage: message})),
+    );

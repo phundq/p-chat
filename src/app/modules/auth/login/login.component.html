@@ -1,1 +1,40 @@
-<p>login works!</p>
+<!-- *ngIf="isLoading" -->
+<div class="form-container">
+    <form [formGroup]="formLogin" novalidate>
+        <div class="form-group" style="position: relative;">
+            <h2 style="text-align: center; color: #4a4a4a">Login</h2>
+            <div style="height: 25px; width: 25px; right: 0px; top: 6px; position: absolute;">
+                <app-loader *ngIf="isLoading" [size]="25"></app-loader>
+            </div>
+        </div>
+        <div class="form-group">
+            <mat-form-field appearance="legacy" style="width: 100%;">
+                <mat-label>User name</mat-label>
+                <input matInput placeholder="Input your user name" formControlName="userName" #userName>
+            </mat-form-field>
+        </div>
+        <div *ngIf="formLogin.controls['userName'].invalid" class="alert alert-danger">
+            <div *ngIf="formLogin.controls['userName'].errors.required && formLogin.controls['userName'].dirty">
+                Name is required.
+            </div>
+        </div>
+        <div class="form-group">
+            <mat-form-field appearance="legacy" style="width: 100%;">
+                <mat-label>Password</mat-label>
+                <input [type]="hide ? 'password' : 'text'" matInput placeholder="Input your password"
+                    formControlName="password" #password>
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </mat-form-field>
+        </div>
+        <div *ngIf="formLogin.controls['password'].invalid && formLogin.controls['password'].dirty"
+            class="alert alert-danger">
+            <div *ngIf="formLogin.controls['password'].errors.required">
+                Name is required.
+            </div>
+        </div>
+        <div class="form-group" style="text-align: center;">
+            <button mat-flat-button class="bg-header" style="color: #fff;" (click)="submit(userName.value, password.value)"
+                [disabled]="formLogin.pristine || formLogin.invalid">Login</button>
+        </div>
+    </form>
+</div>

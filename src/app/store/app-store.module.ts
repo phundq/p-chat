@@ -1,3 +1,4 @@
+import { AuthEffect } from './effect/auth.effect';
 import { UserEffect } from './effect/user.effect';
 import { appReducer } from './app-state';
 import { NgModule } from '@angular/core';
@@ -15,7 +16,7 @@ import { environment } from 'src/environments/environment';
     CommonModule,
     StoreModule.forRoot(appReducer),
     EffectsModule.forRoot([]),
-    EffectsModule.forFeature([UserEffect]),
+    EffectsModule.forFeature([UserEffect, AuthEffect]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ]
 })

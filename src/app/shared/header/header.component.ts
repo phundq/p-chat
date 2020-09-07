@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -8,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   constructor() { }
-
+  @Output() clickLoginOrLogout = new EventEmitter<any>();
+  @Input() isLoginSuccess: boolean = false;
   ngOnInit(): void {
   }
 
+  handlerClickLoginOrLogout(){
+    this.clickLoginOrLogout.emit();
+  }
 }

@@ -1,8 +1,9 @@
+import { AuthStoreFacade } from './../../../store/store-facade/auth-store-facade';
 import { UserService } from './../../../store/service/user.service';
-import { UserStoreFacade } from './../../../store/store-facade/user-store-facade';
 import { User } from './../../../store/model/user.i';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,27 +12,18 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  users: User[] = [];
+  user?: User;
   isLoading: boolean = false;
+  isLoginSuccess: boolean = false;
   formLogin: FormGroup;
   hide = true;
 
   constructor(
-    private userStoreFacade: UserStoreFacade,
+    private authStoreFacade: AuthStoreFacade,
     private userService: UserService,
-    private formBuilder: FormBuilder
-  ) {
-    
-    userStoreFacade.selectUserFeature().subscribe(
-      userFeature => {
-        this.users = userFeature.users;
-        this.isLoading = userFeature.isLoading;
-
-      }
-    );
-
-    this.createForm();
-  }
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) {}
 
   createForm() {
     this.formLogin = this.formBuilder.group({
@@ -41,12 +33,22 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.authStoreFacade.selectAuthFeature().subscribe(
+      authFeature => {
+        this.user = authFeature.user;
+        this.isLoading = authFeature.isLoading;
+        this.isLoginSuccess = authFeature.isLoginSuccess;
+        if(this.isLoginSuccess){
+          this.router.navigate(['\home']);
+        }
+      }
+    );
+    this.createForm();
   }
 
   submit(userName: string, password: string){
     console.log(userName);
     console.log(password);
-    this.userStoreFacade.getAll()
-    
+    this.authStoreFacade.login();
   }
 }

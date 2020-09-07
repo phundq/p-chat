@@ -1,0 +1,25 @@
+.chat-item {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  cursor: default;
+  box-shadow: none;
+}
+.chat-item-container :hover {
+  background-color: #e4e3e3!important;
+}
+
+.avatar {
+  height: 80%;
+  width: auto;
+  border-radius: 50%;
+  margin-left: 3%;
+}
+
+.chat-item-title {
+  margin-left: 10%;
+  display: inline-block;
+}

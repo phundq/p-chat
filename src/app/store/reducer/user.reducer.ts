@@ -7,6 +7,7 @@ export interface UserState{
     currentUser?: User,
     isLoading: boolean,
     errorMessage?: string; 
+    isLoginSuccess?: boolean;
 }
 
 const initUserState: UserState = {
@@ -16,6 +17,6 @@ const initUserState: UserState = {
 export const userReducer = createReducer<UserState>(
     initUserState,
     on(UserAction.getAllUser, state => ({...state, isLoading: true})),
-    on(UserAction.getAllUserSuccess, (state, { users}) => ({...state, isLoading: false, users: users})),
+    on(UserAction.getAllUserSuccess, (state, { users}) => ({...state, isLoading: false, users: users, isLoginSuccess: true})),
     on(UserAction.getAllUserFail, (state,{message}) => ({...state, isLoading: false, errorMessage: message})),
     );

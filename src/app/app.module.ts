@@ -1,5 +1,6 @@
+import { MainLayoutModule } from './main-layout/main-layout.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppStoreModule } from './store/app-store.module';
-import { SharedModule } from './shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
@@ -12,15 +13,16 @@ import { AuthModule } from './modules/auth/auth.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
-    SharedModule,
     AppStoreModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    MainLayoutModule,
     AuthModule,
   ],
   providers: [AngularFirestore],

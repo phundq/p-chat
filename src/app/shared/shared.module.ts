@@ -4,6 +4,10 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MaterialCustomModule } from './material-custom/material-custom.module';
 import { LoaderComponent } from './loader/loader.component';
+import { ChatItemComponent } from './chat/chat-item/chat-item.component';
+import { ChatListComponent } from './chat/chat-list/chat-list.component';
+import { MessageItemComponent } from './chat/message-item/message-item.component';
+import { ChatMessageComponent } from './chat/chat-message/chat-message.component';
 
 
 
@@ -11,7 +15,11 @@ import { LoaderComponent } from './loader/loader.component';
   declarations: [
     HeaderComponent,
     FooterComponent,
-    LoaderComponent
+    LoaderComponent,
+    ChatItemComponent,
+    ChatListComponent,
+    MessageItemComponent,
+    ChatMessageComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +29,11 @@ import { LoaderComponent } from './loader/loader.component';
     MaterialCustomModule,
     HeaderComponent,
     FooterComponent,
-    LoaderComponent
+    LoaderComponent,
+    ChatItemComponent,
+    ChatListComponent,
+    MessageItemComponent,
+    ChatMessageComponent
   ]
 })
 export class SharedModule { }

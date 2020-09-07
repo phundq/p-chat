@@ -13,6 +13,10 @@ export class UserStoreFacade {
         this.store.dispatch(getAllUser());
     }
 
+    logout(){
+        
+    }
+
 
     selectUserFeature(){
         return this.store.select(getUserFeature);

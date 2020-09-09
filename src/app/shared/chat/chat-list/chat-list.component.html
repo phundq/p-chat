@@ -1,5 +1,13 @@
-<div class="chat-list">
-    <div class="chat-item" *ngFor="let chatItem of chatList">
-        <app-chat-item   [chatIem] = "chatItem"></app-chat-item>
+<div class="chat-list-container">
+    <div class="chat-title bg-header">
+        <h2>Chat list</h2>
+    </div>
+    <div class="chat-list">
+        <div class="chat-item" *ngFor="let chatItem of chatList">
+            <app-chat-item   [chatIem] = "chatItem" (click) ="handlerClickChatItem(chatItem)"></app-chat-item>
+        </div>
+    </div>
+    <div class="search-item">
+        <app-search-item (search) ="handlerClickSearch($event)"></app-search-item>
     </div>
 </div>

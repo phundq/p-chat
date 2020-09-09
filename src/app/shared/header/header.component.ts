@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
   @Output() clickLoginOrLogout = new EventEmitter<any>();
   @Input() isLoginSuccess: boolean = false;
   ngOnInit(): void {
@@ -15,5 +16,9 @@ export class HeaderComponent implements OnInit {
 
   handlerClickLoginOrLogout(){
     this.clickLoginOrLogout.emit();
+  }
+
+  goToHome(){
+    this.router.navigate([''])
   }
 }

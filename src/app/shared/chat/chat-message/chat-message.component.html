@@ -1,1 +1,7 @@
-<p>chat-message works!</p>
+<div class="chat-message-container">
+    <div class="chat-message">
+        <div class="chat-message-item" *ngFor="let messageItem of messageItems">
+            <app-chat-message-item [messageItem] = "messageItem"></app-chat-message-item>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="search-item-container">
+    <div class="search-item">
+        <input type="text" (keydown)="handlerClickSearch(searchText.value)" placeholder="Search" #searchText>
+        <div class="search-icon" (click)= "handlerClickSearch(searchText.value)">
+            <mat-icon>search</mat-icon>
+        </div>
+    </div>
+</div>

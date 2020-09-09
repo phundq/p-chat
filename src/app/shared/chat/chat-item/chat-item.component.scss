@@ -7,19 +7,43 @@
   align-items: center;
   cursor: default;
   box-shadow: none;
+  // border-bottom: 1px solid #d2d2d2;
+ 
 }
 .chat-item-container :hover {
   background-color: #e4e3e3!important;
 }
 
-.avatar {
+.avatar-container {
   height: 80%;
+  width: auto;
+  margin-left: 3%;
+  position: relative;
+}
+.avatar {
+  height: 100%;
   width: auto;
   border-radius: 50%;
   margin-left: 3%;
+  border: 1px solid #d2d2d2;
 }
 
 .chat-item-title {
-  margin-left: 10%;
+  margin-left: 25px;
   display: inline-block;
+}
+
+.badge {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  text-align: center;
+  align-items: center;
+  bottom: 0px!important;
+  right: 0px!important;
+  background: rgb(103, 187, 83)!important;
+  border-radius: 50%;
+}
+.hide{
+  opacity: 0;
 }

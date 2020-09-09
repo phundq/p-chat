@@ -1,0 +1,20 @@
+<div class="home-wrapper">
+    <div class="top-container">
+        <div class="avatar">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU " alt="user avatar">
+            <span class="username">User Name</span>
+        </div>
+        <div class="setting" [routerLink]="['/setting']" >
+            <span class="setting-title">Setting</span>
+            <mat-icon>settings</mat-icon>
+        </div>
+    </div>
+    <div class="chat-container">
+        <div class="chat-list-container">
+            <app-chat-list (search) ="handlerClickSearch($event)" (getChatItem)= "handlerClickGetChatItem($event)"></app-chat-list>
+        </div>
+    <div class="content-container">
+        <router-outlet></router-outlet>
+    </div>
+    </div>
+</div>

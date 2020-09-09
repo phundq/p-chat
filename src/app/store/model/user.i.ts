@@ -1,9 +1,10 @@
 export interface User {
     id: number;
     username: string;
-    password: string;
+    avatar?: string;
     fullName: string;
-    role: string;
-    created: Date;
-    modified: Date;
+    isOnline?: boolean;
+    role?: string;
+    created?: Date;
+    modified?: Date;
 }

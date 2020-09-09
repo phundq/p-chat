@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { User } from './../../../store/model/user.i';
+import { Component, OnInit, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-chat-item',
@@ -9,16 +10,15 @@ export class ChatItemComponent implements OnInit {
 
   constructor() { }
 
-  @Input() chatIem: ChatItem = {
-    avatar:"",
-    fullName:"Full Name"
-} 
+  @Input() chatIem: User = {
+    id: 0,
+    username: "username",
+    avatar: "",
+    fullName: "Full Name",
+    isOnline: false
+  }
+
   ngOnInit(): void {
   }
 
-}
-
-export interface ChatItem{
-  avatar?: string;
-  fullName?: string;
 }

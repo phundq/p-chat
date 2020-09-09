@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
         this.isLoading = authFeature.isLoading;
         this.isLoginSuccess = authFeature.isLoginSuccess;
         if(this.isLoginSuccess){
-          this.router.navigate(['\home']);
+          this.router.navigate(['']);
         }
       }
     );

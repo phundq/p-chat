@@ -4,8 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full'},
-  { path: '', loadChildren: () => import('./modules/chat/chat.module').then(m => m.ChatModule)},
+  { path: '', loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)},
   { path: 'login', component: LoginComponent }
 ];
 

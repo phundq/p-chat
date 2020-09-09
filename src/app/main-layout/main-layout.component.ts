@@ -22,9 +22,9 @@ export class MainLayoutComponent implements OnInit {
         if (this.isLoginSuccess) {
           this.router.navigate(['\home']);
         }
-        else{
-          this.router.navigate(['\login']);
-        }
+        // else{
+        //   this.router.navigate(['\login']);
+        // }
       }
     );
   }

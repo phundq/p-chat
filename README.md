@@ -12,6 +12,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
    storybook:     npx sb init
    addon-knobs:   npm install --save-dev @storybook/addon-knobs
    firebase:   npm install @angular/fire firebase --save
+   time ago pine: npm install time-ago-pipe --save
 ```
 
 ## Development server

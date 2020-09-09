@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ChatItem } from '../chat-item/chat-item.component';
+import { User } from './../../../store/model/user.i';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-chat-list',
@@ -13,27 +13,122 @@ export class ChatListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  @Input() chatList: ChatItem[] = [
+  @Output() search = new EventEmitter<string>();
+  @Output() getChatItem = new EventEmitter<User>();
+  @Input() chatList: User[] = [
     {
+      id: 1,
+      username: "phu@gmail.com",
       avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU",
-      fullName: "Quốc Phú"
+      fullName: "Quốc Phú",
+      isOnline: true
     },
     {
+      id: 1,
+      username: "phu@gmail.com",
       avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU",
-      fullName: "Quốc Phú 1"
+      fullName: "Quốc Phú",
+      isOnline: true
     },
     {
+      id: 1,
+      username: "phu@gmail.com",
       avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU",
-      fullName: "Quốc Phú 2"
+      fullName: "Quốc Phú",
+      isOnline: true
     },
     {
+      id: 1,
+      username: "phu@gmail.com",
       avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU",
-      fullName: "Quốc Phú 3"
+      fullName: "Quốc Phú",
+      isOnline: true
     },
     {
+      id: 1,
+      username: "phu@gmail.com",
       avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU",
-      fullName: "Quốc Phú 4"
-    }
+      fullName: "Quốc Phú",
+      isOnline: true
+    },
+    {
+      id: 1,
+      username: "phu@gmail.com",
+      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU",
+      fullName: "Quốc Phú",
+      isOnline: true
+    },
+    {
+      id: 1,
+      username: "phu@gmail.com",
+      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU",
+      fullName: "Quốc Phú",
+      isOnline: true
+    },
+    {
+      id: 1,
+      username: "phu@gmail.com",
+      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU",
+      fullName: "Quốc Phú",
+      isOnline: true
+    },
+    {
+      id: 1,
+      username: "phu@gmail.com",
+      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU",
+      fullName: "Quốc Phú",
+      isOnline: true
+    },
+    {
+      id: 1,
+      username: "phu@gmail.com",
+      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU",
+      fullName: "Quốc Phú",
+      isOnline: true
+    },
+    {
+      id: 1,
+      username: "phu@gmail.com",
+      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU",
+      fullName: "Quốc Phú",
+      isOnline: true
+    },
+    {
+      id: 1,
+      username: "phu@gmail.com",
+      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU",
+      fullName: "Quốc Phú",
+      isOnline: true
+    },
+    {
+      id: 1,
+      username: "phu@gmail.com",
+      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU",
+      fullName: "Quốc Phú",
+      isOnline: true
+    },
+    {
+      id: 1,
+      username: "phu@gmail.com",
+      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU",
+      fullName: "Quốc Phú",
+      isOnline: true
+    },
+    {
+      id: 1,
+      username: "phu@gmail.com",
+      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU",
+      fullName: "Quốc Phú",
+      isOnline: true
+    },
+    
+
   ];
 
+  handlerClickSearch(data: string) {  
+    this.search.emit(data);
+  }
+  handlerClickChatItem(data: User) {  
+    this.getChatItem.emit(data);
+  }
 }

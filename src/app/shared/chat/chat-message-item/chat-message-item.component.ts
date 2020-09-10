@@ -20,6 +20,7 @@ export class ChatMessageItemComponent implements OnChanges {
     timeTooltip: formatDate(this.messageItem.time,"medium","en-US"),
     isFriend: this.messageItem.isFriend
     }
+    
   }
   messageItemCustom: any;
   @Input() messageItem: MessageItem = {

@@ -71,13 +71,13 @@ export class ChatRoomPageComponent implements OnInit {
       avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU ",
       message: "message content lorem  asa sa sa dá d sad sa ds a ds ad sads  da da sd ",
       time: new Date(),
-      isFriend: true
+      isFriend: false
     },
     {
       avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU ",
       message: "message content  á fas  f sads ad sa  sa d sa s ad asd sad s ad sa d sa ds aas ",
       time: new Date("2020-09-09T00:00:00"),
-      isFriend: false
+      isFriend: true
     },
     {
       avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU ",
@@ -95,7 +95,7 @@ export class ChatRoomPageComponent implements OnInit {
       avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU ",
       message: "message  sd ",
       time: new Date(),
-      isFriend: true
+      isFriend: false
     },
     {
       avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU ",

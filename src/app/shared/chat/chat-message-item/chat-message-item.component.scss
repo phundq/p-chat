@@ -12,7 +12,7 @@
 
 .chat-message-item img {
   width: auto;
-  height: 40px;
+  height: 30px;
   margin-right: 3px;
   display: inline-block;
 }
@@ -26,12 +26,15 @@
 }
 
 .border-for-friend-message {
+  background: rgb(228, 228, 228);
+  color: black;
   border-top-left-radius: 5px;
   border-bottom-right-radius: 5px;
   border-top-right-radius: 5px;
 }
 
 .border-for-user-message {
+  background: #316fb7;
   border-bottom-left-radius: 5px;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;

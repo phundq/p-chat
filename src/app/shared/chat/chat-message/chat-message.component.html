@@ -1,7 +1,16 @@
-<div class="chat-message-container">
-    <div class="chat-message">
-        <div class="chat-message-item" *ngFor="let messageItem of messageItems">
-            <app-chat-message-item [messageItem] = "messageItem"></app-chat-message-item>
+<div class="main-container">
+    <div class="chat-header bg-header">
+        <span class="friend">Friend</span>
+        <mat-icon>more_vert</mat-icon>
+    </div>
+    <div class="chat-message-container">
+        <div class="chat-message">
+            <div class="chat-message-item" *ngFor="let messageItem of messageItems">
+                <app-chat-message-item [messageItem] = "messageItem"></app-chat-message-item>
+            </div>
         </div>
+    </div>
+    <div class="input-container">
+        <app-chat-input-item (send) ="handlerClickSend($event)"></app-chat-input-item>
     </div>
 </div>

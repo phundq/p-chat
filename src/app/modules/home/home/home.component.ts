@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   }
   handlerClickGetChatItem(data: User) {
     console.log(data)
+    this.router.navigate(['/chat'])
   }
 
 }

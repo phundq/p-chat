@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-chat-input-item',
@@ -9,7 +9,22 @@ export class ChatInputItemComponent implements OnInit {
 
   constructor() { }
 
+  message: string = '';
+  @Output() send = new EventEmitter<string>();
+  @Output() clear  = new EventEmitter<any>();
+
   ngOnInit(): void {
+  }
+
+  handlerClickSend() {
+    if (this.message !== "") {
+      this.send.emit(this.message.trim());
+      this.message = ''
+    }
+  }
+
+  clearMessage() {
+    this.message = '';
   }
 
 }

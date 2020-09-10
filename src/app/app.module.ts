@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { MainLayoutModule } from './main-layout/main-layout.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppStoreModule } from './store/app-store.module';
@@ -24,6 +25,7 @@ import { AuthModule } from './modules/auth/auth.module';
     AngularFirestoreModule,
     MainLayoutModule,
     AuthModule,
+    FormsModule
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]

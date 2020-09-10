@@ -1,15 +1,15 @@
 <div class="chat-message-item-container">
-    <div class="chat-message-item"
-    [ngClass] = "messageItem.isFriend? '':'flex-resever'"
-    >
-        <img src= {{messageItem.avatar}} alt="user avatar">
-        <p class="bg-header"
-        [ngClass] = "messageItem.isFriend? 'border-for-friend-message':'border-for-user-message'"
-        >{{messageItem.message}}</p>
+    <div class="chat-message-item" [ngClass]="messageItemCustom.isFriend? '':'flex-resever'">
+        <img src={{messageItemCustom.avatar}} alt="user avatar">
+        <p class="bg-header" [ngClass]="messageItem.isFriend? 'border-for-friend-message':'border-for-user-message'">
+            {{messageItemCustom.message}}
+        </p>
     </div>
     <div class="time-create">
         <!-- <p>{{messageItem.time |date:"dd - MM - yyyy hh : mm : ss"}}</p> -->
-        <p>{{messageItem.time.toString() |timeAgo}} &nbsp;&nbsp;&nbsp; {{messageItem.time |date:"medium"}}</p>
-        <p matTooltip = "messageItem.time |date:dd/MM/yyyy'" matTooltipPosition="above" > {{messageItem.time.toString() |timeAgo}} &nbsp; {{messageItem.time |date:"medium"}}</p>
+        <!-- <p>{{messageItemCustom.time.toString() |timeAgo}} &nbsp;&nbsp;&nbsp; {{messageItemCustom.time |date:"medium"}}</p> -->
+        <p matTooltip={{messageItemCustom.timeTooltip}} matTooltipPosition="below">
+            {{messageItemCustom.time.toString() |timeAgo}} &nbsp;
+        </p>
     </div>
 </div>

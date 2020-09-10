@@ -1,6 +1,9 @@
 .bg-header {
-  background: #0091ea;
+  background: #4779b3;
 }
+// .bg-header {
+//   background: #0091ea;
+// }
 
 input::-webkit-input-placeholder {
   /* WebKit browsers */
@@ -20,4 +23,8 @@ input::-moz-placeholder {
 input:-ms-input-placeholder {
   /* Internet Explorer 10+ */
   line-height: 1.5em;
+}
+
+input, textarea{
+  margin: 0;
 }

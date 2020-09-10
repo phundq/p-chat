@@ -1,1 +1,8 @@
-<p>chat-input-item works!</p>
+<div class="chat-input-container">
+    <textarea cdkTextareaAutosize rows="1"
+    cdkAutosizeMinRows="1" cdkAutosizeMaxRows="4" placeholder="input message" [(ngModel)] = "message">
+    </textarea>
+    <div class="send-button-container">
+        <div class="send-button" (click) ="handlerClickSend()">Send</div>
+    </div>
+</div>

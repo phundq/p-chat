@@ -1,3 +1,4 @@
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TimeAgoPipeCustom } from './time-ago-pipe-custom/time-ago-pipe-custom';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -33,6 +34,8 @@ import { ChatInputItemComponent } from './chat/chat-input-item/chat-input-item.c
   imports: [
     CommonModule,
     MaterialCustomModule,
+    ReactiveFormsModule,
+    FormsModule
 
   ],
   exports: [

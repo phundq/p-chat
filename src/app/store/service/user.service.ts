@@ -1,15 +1,21 @@
-import { AngularFirestore } from '@angular/fire/firestore';
+import { User } from './../model/user.i';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private fireStore: AngularFirestore) { }
+  constructor() { }
 
-  getUser(){
-    return this.fireStore.collection('users').valueChanges();
+  user: User[] =[{
+    id: 1,
+    fullName: "abc",
+    username: "abc@gmail.com"
+  }]
+
+  getUser(): Observable<User[]>{
+    return of(this.user);
   }
 }

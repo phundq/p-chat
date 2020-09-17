@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class MainLayoutComponent implements OnInit {
 
   isLoginSuccess: boolean = false;
+  isLoading: boolean = false;
 
   constructor(
     private authStoreFacade: AuthStoreFacade,
@@ -17,10 +18,11 @@ export class MainLayoutComponent implements OnInit {
 
   ngOnInit() {
     this.authStoreFacade.selectAuthFeature().subscribe(
-      userFeature => {
-        this.isLoginSuccess = userFeature.isLoginSuccess;
+      authFeature => {
+        this.isLoginSuccess = authFeature.isLoginSuccess;
+        this.isLoading = authFeature.isLoading
         if (this.isLoginSuccess) {
-          this.router.navigate(['\home']);
+          this.router.navigate(['']);
         }
         // else{
         //   this.router.navigate(['\login']);

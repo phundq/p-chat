@@ -4,16 +4,16 @@
 
 export const environment = {
   production: false,
-  firebase: {
-    apiKey: 'AIzaSyBqD9ctCO2DDFRrIXjpYN5DQhl7V1CegkA',
-    authDomain: 'p-chat-c976f.firebaseapp.com',
-    databaseURL: 'https://p-chat-c976f.firebaseio.com',
-    projectId: 'p-chat-c976f',
-    storageBucket: 'p-chat-c976f.appspot.com',
-    messagingSenderId: '925858112180',
-    appId: '1:925858112180:web:c53c6b163f50d82572ede1',
-    measurementId: 'G-PGVQ1JNNP0'
-}
+  // firebase: {
+  //   apiKey: 'AIzaSyBqD9ctCO2DDFRrIXjpYN5DQhl7V1CegkA',
+  //   authDomain: 'p-chat-c976f.firebaseapp.com',
+  //   databaseURL: 'https://p-chat-c976f.firebaseio.com',
+  //   projectId: 'p-chat-c976f',
+  //   storageBucket: 'p-chat-c976f.appspot.com',
+  //   messagingSenderId: '925858112180',
+  //   appId: '1:925858112180:web:c53c6b163f50d82572ede1',
+  //   measurementId: 'G-PGVQ1JNNP0'
+// }
 };
 
 /*

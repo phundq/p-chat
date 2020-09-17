@@ -3,7 +3,7 @@
         <span class="friend">Friend</span>
         <mat-icon>more_vert</mat-icon>
     </div>
-    <div class="chat-message-container">
+    <div class="chat-message-container" #scrollMessage>
         <div class="chat-message">
             <div class="chat-message-item" *ngFor="let messageItem of messageItems">
                 <app-chat-message-item [messageItem] = "messageItem"></app-chat-message-item>

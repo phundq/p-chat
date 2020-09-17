@@ -35,12 +35,12 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.authStoreFacade.selectAuthFeature().subscribe(
       authFeature => {
-        this.user = authFeature.user;
+        // this.user = authFeature.user;
         this.isLoading = authFeature.isLoading;
-        this.isLoginSuccess = authFeature.isLoginSuccess;
-        if(this.isLoginSuccess){
-          this.router.navigate(['']);
-        }
+        // this.isLoginSuccess = authFeature.isLoginSuccess;
+        // if(this.isLoginSuccess){
+        //   this.router.navigate(['']);
+        // }
       }
     );
     this.createForm();

@@ -19,105 +19,126 @@ export class ChatListComponent implements OnInit {
     {
       id: 1,
       username: "phu@gmail.com",
-      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU",
+      avatar: "https://pchat.s3-ap-southeast-1.amazonaws.com/picturemessage_eowcndin.5lq.png",
+      fullName: "Quốc Phú",
+      isOnline: false
+    },
+    {
+      id: 1,
+      username: "phu@gmail.com",
+      avatar: "https://pchat.s3-ap-southeast-1.amazonaws.com/picturemessage_eowcndin.5lq.png",
       fullName: "Quốc Phú",
       isOnline: true
     },
     {
       id: 1,
       username: "phu@gmail.com",
-      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU",
+      avatar: "https://pchat.s3-ap-southeast-1.amazonaws.com/picturemessage_eowcndin.5lq.png",
+      fullName: "Quốc Phú",
+      isOnline: false
+    },
+    {
+      id: 1,
+      username: "phu@gmail.com",
+      avatar: "https://pchat.s3-ap-southeast-1.amazonaws.com/picturemessage_eowcndin.5lq.png",
       fullName: "Quốc Phú",
       isOnline: true
     },
     {
       id: 1,
       username: "phu@gmail.com",
-      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU",
+      avatar: "https://pchat.s3-ap-southeast-1.amazonaws.com/picturemessage_eowcndin.5lq.png",
       fullName: "Quốc Phú",
       isOnline: true
     },
     {
       id: 1,
       username: "phu@gmail.com",
-      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU",
+      avatar: "https://pchat.s3-ap-southeast-1.amazonaws.com/picturemessage_eowcndin.5lq.png",
       fullName: "Quốc Phú",
       isOnline: true
     },
     {
       id: 1,
       username: "phu@gmail.com",
-      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU",
+      avatar: "https://pchat.s3-ap-southeast-1.amazonaws.com/picturemessage_eowcndin.5lq.png",
       fullName: "Quốc Phú",
       isOnline: true
     },
     {
       id: 1,
       username: "phu@gmail.com",
-      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU",
+      avatar: "https://pchat.s3-ap-southeast-1.amazonaws.com/picturemessage_eowcndin.5lq.png",
       fullName: "Quốc Phú",
       isOnline: true
     },
     {
       id: 1,
       username: "phu@gmail.com",
-      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU",
+      avatar: "https://pchat.s3-ap-southeast-1.amazonaws.com/picturemessage_eowcndin.5lq.png",
       fullName: "Quốc Phú",
       isOnline: true
     },
     {
       id: 1,
       username: "phu@gmail.com",
-      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU",
+      avatar: "https://pchat.s3-ap-southeast-1.amazonaws.com/picturemessage_eowcndin.5lq.png",
       fullName: "Quốc Phú",
       isOnline: true
     },
     {
       id: 1,
       username: "phu@gmail.com",
-      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU",
+      avatar: "https://pchat.s3-ap-southeast-1.amazonaws.com/picturemessage_eowcndin.5lq.png",
       fullName: "Quốc Phú",
       isOnline: true
     },
     {
       id: 1,
       username: "phu@gmail.com",
-      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU",
+      avatar: "https://pchat.s3-ap-southeast-1.amazonaws.com/picturemessage_eowcndin.5lq.png",
       fullName: "Quốc Phú",
       isOnline: true
     },
     {
       id: 1,
       username: "phu@gmail.com",
-      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU",
+      avatar: "https://pchat.s3-ap-southeast-1.amazonaws.com/picturemessage_eowcndin.5lq.png",
       fullName: "Quốc Phú",
       isOnline: true
     },
     {
       id: 1,
       username: "phu@gmail.com",
-      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU",
+      avatar: "https://pchat.s3-ap-southeast-1.amazonaws.com/picturemessage_eowcndin.5lq.png",
       fullName: "Quốc Phú",
       isOnline: true
     },
     {
       id: 1,
       username: "phu@gmail.com",
-      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU",
+      avatar: "https://pchat.s3-ap-southeast-1.amazonaws.com/picturemessage_eowcndin.5lq.png",
       fullName: "Quốc Phú",
       isOnline: true
     },
     {
       id: 1,
       username: "phu@gmail.com",
-      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU",
+      avatar: "https://pchat.s3-ap-southeast-1.amazonaws.com/picturemessage_eowcndin.5lq.png",
       fullName: "Quốc Phú",
       isOnline: true
     },
     {
       id: 1,
       username: "phu@gmail.com",
-      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU",
+      avatar: "https://pchat.s3-ap-southeast-1.amazonaws.com/picturemessage_eowcndin.5lq.png",
+      fullName: "Quốc Phú",
+      isOnline: true
+    },
+    {
+      id: 1,
+      username: "phu@gmail.com",
+      avatar: "https://pchat.s3-ap-southeast-1.amazonaws.com/picturemessage_eowcndin.5lq.png",
       fullName: "Quốc Phú",
       isOnline: true
     },

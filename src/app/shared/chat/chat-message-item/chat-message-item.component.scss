@@ -11,10 +11,11 @@
 }
 
 .chat-message-item img {
-  width: auto;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   margin-right: 3px;
   display: inline-block;
+  border-radius: 50%;
 }
 
 .chat-message-item p {

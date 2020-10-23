@@ -9,7 +9,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class ChatRoomPageComponent implements OnInit {
 
-  constructor(private messageService: MessageService) { }
+  constructor(public messageService: MessageService) { }
 
   messageItems: MessageItem[] = []
   ngOnInit(): void {
@@ -18,6 +18,7 @@ export class ChatRoomPageComponent implements OnInit {
     this.messageService.joinRoom(this.room);
     this.messageService.chatClient();
     this.messageService.setUserId(this.userId);
+    
   }
 
   userId: string = '';
@@ -35,8 +36,7 @@ export class ChatRoomPageComponent implements OnInit {
     }
     this.messageService.chat(mes);
     this.data = this.messageService.data;
-    this.messageItems = this.messageService.dataRender;
-    console.log(this.data);
+    console.log(this.messageService.dataRender);
     
   }
 

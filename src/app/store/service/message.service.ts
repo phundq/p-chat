@@ -2,9 +2,7 @@ import { MessageTestSocket, MessageItem } from './../model/message.i';
 import * as socketIO from 'socket.io-client';
 import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class MessageService {
   socket: socketIO.SocketIOClient.Socket;
   data: MessageTestSocket[] = [];

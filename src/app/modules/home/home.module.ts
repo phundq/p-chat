@@ -1,3 +1,4 @@
+import { MessageService } from './../../store/service/message.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -14,6 +15,7 @@ import { ChatRoomPageComponent } from './chat-room-page/chat-room-page.component
     CommonModule,
     HomeRoutingModule,
     SharedModule
-  ]
+  ],
+  providers:[MessageService]
 })
 export class HomeModule { }

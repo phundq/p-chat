@@ -29,7 +29,7 @@ export class MessageService {
     this.data.push(msg);
     this.dataRender = this.data.map((data) => {
       let mesR: MessageItem = {
-      avatar: "https://pchat.s3-ap-southeast-1.amazonaws.com/picturemessage_eowcndin.5lq.png",
+      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU ",
       message: data.messenger,
       time: new Date(),
       isFriend: (data.userId === this.userID) ? false : true,

@@ -10,6 +10,12 @@
   color: #fff;
 }
 
+.chat-message-item p {
+  max-width: 100%;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
 .chat-message-item img {
   width: 20px;
   height: 20px;

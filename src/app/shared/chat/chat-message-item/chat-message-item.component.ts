@@ -15,7 +15,7 @@ export class ChatMessageItemComponent implements OnChanges {
   ngOnChanges(): void {
     this.messageItemCustom = {
     avatar: this.messageItem.avatar,
-    message: this.messageItem.message,
+    message: this.messageItem.message.trim(),
     time: this.messageItem.time,
     timeTooltip: formatDate(this.messageItem.time,"medium","en-US"),
     isFriend: this.messageItem.isFriend

@@ -15,6 +15,7 @@ export class ChatListComponent implements OnInit {
 
   @Output() search = new EventEmitter<string>();
   @Output() getChatItem = new EventEmitter<User>();
+  @Output() closeChatList = new EventEmitter<User>();
   @Input() chatList: User[] = [
     {
       id: 1,
@@ -142,14 +143,19 @@ export class ChatListComponent implements OnInit {
       fullName: "Quốc Phú",
       isOnline: true
     },
-    
+
 
   ];
 
-  handlerClickSearch(data: string) {  
+  handlerClickSearch(data: string) {
     this.search.emit(data);
   }
-  handlerClickChatItem(data: User) {  
+
+  handlerClickChatItem(data: User) {
     this.getChatItem.emit(data);
+  }
+
+  handlerCloseChatList() {
+    this.closeChatList.emit();
   }
 }

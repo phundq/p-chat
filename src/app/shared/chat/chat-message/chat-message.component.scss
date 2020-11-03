@@ -56,9 +56,19 @@
 }
 
 .chat-header .friend {
-  font-size: 20px;
-  font-weight: 400;
-  margin-left: 20px;
+ height: 100%;
+ display: flex;
+ align-items: center;
+}
+.chat-header .friend img {
+  height: 76%;
+  width: auto;
+  margin-left: 15px;
+  border-radius: 50%;
+}
+
+.friend-name {
+  margin-left: 15px;
 }
 
 .chat-header .mat-icon {

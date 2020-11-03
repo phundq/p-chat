@@ -28,3 +28,49 @@ input:-ms-input-placeholder {
 input, textarea{
   margin: 0;
 }
+
+.sub-header{
+  font-size: 20px;
+  font-weight: 400;
+}
+.center{
+  text-align: center!important;
+} 
+
+.text-white{
+  color: #fff;
+}
+
+.d-block{
+  display: block;
+}
+
+.mat-toolbar-row{
+  height: 50px!important;
+}
+
+.mat-toolbar-multiple-rows {
+  min-height: 50px!important;
+}
+
+.header{
+  height: 50px!important;
+}
+
+.no-copy {
+
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer */
+  -khtml-user-select: none;
+  /* KHTML browsers (e.g. Konqueror) */
+  -webkit-user-select: none;
+  /* Chrome, Safari, and Opera */
+  -webkit-touch-callout: none;
+  /* Disable Android and iOS callouts*/
+}
+
+*:focus {
+  outline: 0;
+}

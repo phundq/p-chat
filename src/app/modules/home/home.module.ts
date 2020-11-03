@@ -7,10 +7,11 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { SettingComponent } from './setting/setting.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { ChatRoomPageComponent } from './chat-room-page/chat-room-page.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, SettingComponent, ChatRoomPageComponent],
+  declarations: [HomeComponent, SettingComponent, ChatRoomPageComponent, WelcomeComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,

@@ -5,7 +5,6 @@
   align-items: center;
 }
 .avatar {
-  width: 23%;
   display: flex;
   height: 50px;
   margin-bottom: 15px;
@@ -13,7 +12,7 @@
 }
 
 .avatar img {
-  margin-left: 10px;
+  margin-left: 19px;
   display: block;
   height: 100%;
   width: auto;
@@ -22,7 +21,7 @@
 }
 
 .username {
-  margin-left: 25px;
+  margin-left: 10px;
   font-size: 20px;
   font-weight: 400;
 }
@@ -39,10 +38,10 @@
 }
 
 .chat-list-container {
-  width: 23%;
+  left: 10px;
+  position: absolute;
+  width: 95%;
   height: 100%;
-  margin-left: 10px;
-
 }
 
 .setting{
@@ -53,7 +52,7 @@
   cursor: default;
 }
 .setting .mat-icon{
-  margin-right: 10px;
+  margin-right: 19px;
 }
 .setting .setting-title{
   margin-right: 10px;
@@ -66,19 +65,50 @@
 
 // CONTENT CONTAINER
 .content-container{
-  min-width: 77%;
-  height: 100%;
+  // min-width: 77%;
+  height: calc(100% - 1px);
   margin-left: 10px;
   margin-right: 10px;
   border-radius: 5px;
-  border: 1px solid #d2d2d2;
+  // border: 1px solid #d2d2d2;
 }
 
 .mat-drawer-container{
+width: 100%;
  flex: 1 0 auto;
  height: 100%;
 }
 
-.mat-drawer-inner-container{
-  overflow-y: hidden!important;
+.mat-drawer{
+  width: 25%;
+  height: 100%;
+  overflow: hidden !important;
+}
+
+.drag-open-chat-list{
+  cursor: move;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 100;
+  // left: 14px;
+  top: 135px;
+  margin-left: 24px;
+}
+
+.drag-open-chat-list .open-chat-btn-move{
+  margin: auto;
+  margin-top: 5px;
+  display: none;
+  color: #c1c0c0;
+}
+
+.drag-open-chat-list:hover  .open-chat-btn-move{
+ display: block;
+}
+
+@media only screen and (max-width: 750px) {
+  .mat-drawer {
+    width: 100%;
+  }
 }

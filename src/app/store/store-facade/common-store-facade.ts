@@ -10,6 +10,8 @@ import * as CommonAction from '../action/common.action';
 export class CommonStoreFacade {
     constructor(private store: Store) { }
 
+    // DISPATCH
+    
     activateChatList() {
         this.store.dispatch(CommonAction.activateChatList());
     }
@@ -23,6 +25,12 @@ export class CommonStoreFacade {
 
     deactivateMobile() {
         this.store.dispatch(CommonAction.deactivateMobile());
+    }
+
+    // SELECT
+
+    getCommonFeature(){
+        return this.store.select(getCommonFeature);
     }
 
     isActiveChatList(){

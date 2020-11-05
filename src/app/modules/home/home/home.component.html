@@ -5,7 +5,7 @@
                 alt="user avatar">
             <span class="username">User Name</span>
         </div>
-        <div class="setting no-copy" (click)="handlerOpenChatList()" [routerLink]="['/setting']">
+        <div class="setting no-copy" (click)="handlerCloseChatList()" [routerLink]="['/setting']">
             <span class="setting-title">Setting</span>
             <mat-icon>settings</mat-icon>
         </div>
@@ -27,7 +27,7 @@
 
 <div *ngIf="!isActiveChatList" cdkDrag cdkDragBoundary="body" class="drag-open-chat-list">
     <button mat-mini-fab color="primary" (click)="handlerToggleChatList()" class="open-chat-btn">
-        <mat-icon>format_align_left</mat-icon>
+        <mat-icon inline="true" style="font-size: 20px;">format_align_left</mat-icon>
     </button>
     <mat-icon class="open-chat-btn-move">open_with</mat-icon>
 </div>

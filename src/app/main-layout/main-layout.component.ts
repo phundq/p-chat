@@ -1,11 +1,10 @@
-import { activateMobile, deactivateMobile } from './../store/action/common.action';
-import { isMobile } from './../store/selector/common.selector';
-import { CommonStoreFacade } from './../store/store-facade/common-store-facade';
-import { AuthStoreFacade } from './../store/store-facade/auth-store-facade';
-import { Component, OnInit, OnChanges, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { CommonService } from './../store/service/common.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { MediaMatcher } from '@angular/cdk/layout';
+import { isActivateChatList } from '../store/selector/common.selector';
+import { AuthStoreFacade } from './../store/store-facade/auth-store-facade';
+import { CommonStoreFacade } from './../store/store-facade/common-store-facade';
 
 @Component({
   selector: 'app-main-layout',
@@ -17,17 +16,20 @@ export class MainLayoutComponent implements OnInit, OnDestroy {
   isLoginSuccess: boolean = false;
   isLoading: boolean = false;
   isActiveChatList: boolean = true;
-  mobileQuery: MediaQueryList;
+  isMobile: boolean;
+
+  public subscriptionAuth: Subscription;
+  public subscriptionCommon: Subscription;
 
   constructor(
     private authStoreFacade: AuthStoreFacade,
     private commonStoreFacade: CommonStoreFacade,
+    private commonService: CommonService,
     private router: Router,
-    private media: MediaMatcher,
-    private changeDetectorRef: ChangeDetectorRef) { }
+  ) { }
 
   ngOnInit() {
-    this.authStoreFacade.selectAuthFeature().subscribe(
+    this.subscriptionAuth = this.authStoreFacade.selectAuthFeature().subscribe(
       authFeature => {
         this.isLoginSuccess = authFeature.isLoginSuccess;
         this.isLoading = authFeature.isLoading
@@ -40,28 +42,24 @@ export class MainLayoutComponent implements OnInit, OnDestroy {
       }
     );
 
-    // if (window.screen.width <= 360) { // 768px portrait
-    //   console.log("mobile");
+    this.commonService.initBrowser();
 
-    //   this.commonStoreFacade.activateMobile();
-    // }
-    // else {
-    //   console.log("not mobile");
-
-    //   this.commonStoreFacade.deactivateMobile();
-    // }
-
-    this.mobileQuery = this.media.matchMedia('(max-width: 600px)');
-    this._mobileQueryListener = () => this.changeDetectorRef.detectChanges();
-    this.mobileQuery.addListener(this._mobileQueryListener);
+    this.subscriptionCommon = this.commonStoreFacade.getCommonFeature().subscribe(
+      data => {
+        this.isActiveChatList = data.isActiveChatList;
+        this.isMobile = data.isMobile;
+      }
+    );
   }
 
   ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this._mobileQueryListener);
+    if (this.subscriptionAuth)
+      this.subscriptionAuth.unsubscribe();
+    if (this.subscriptionCommon)
+      this.subscriptionCommon.unsubscribe();
   }
 
   handlerClickLoginOrLogout() {
-    console.log(this.isLoginSuccess);
 
     if (!this.isLoginSuccess) {
       this.router.navigate(['\login']);
@@ -75,9 +73,7 @@ export class MainLayoutComponent implements OnInit, OnDestroy {
     this.isActiveChatList = isActive;
   }
 
-  _mobileQueryListener() {
-    console.log("change browser");
-    
+  onResize() {
+    this.commonService.handlerResizeBrowser(this.isActiveChatList, this.isMobile);
   }
-
 }

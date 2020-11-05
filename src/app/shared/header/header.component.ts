@@ -10,14 +10,16 @@ import { Subscription } from 'rxjs';
 })
 export class HeaderComponent implements OnInit {
   public isActiveChatList: boolean = true;
+  public isMobile: boolean;
   constructor(private router: Router, public commonStoreFacade: CommonStoreFacade) { }
   public subscriptionIsActiveChatList: Subscription;
   @Output() clickLoginOrLogout = new EventEmitter<any>();
   @Input() isLoginSuccess: boolean = false;
   ngOnInit(): void {
-    this.subscriptionIsActiveChatList = this.commonStoreFacade.isActiveChatList().subscribe(
+    this.subscriptionIsActiveChatList = this.commonStoreFacade.getCommonFeature().subscribe(
       data => {
-        this.isActiveChatList = data;
+        this.isActiveChatList = data.isActiveChatList;
+        this.isMobile = data.isMobile;
       }
     );
   }
@@ -28,7 +30,7 @@ export class HeaderComponent implements OnInit {
 
   goToHome() {
     this.router.navigate([''])
-    if (this.isActiveChatList)
+    if (this.isActiveChatList && this.isMobile)
       this.commonStoreFacade.deactivateChatList();
   }
 }

@@ -1,7 +1,10 @@
+import { ErrorDialogComponent } from './../../shared/dialog/error-dialog/error-dialog.component';
 import { isActivateChatList } from './../selector/common.selector';
 import { Subscription } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { CommonStoreFacade } from './../store-facade/common-store-facade';
+import { MatDialog } from '@angular/material/dialog';
+import { YesNoDialogComponent } from 'src/app/shared/dialog/yes-no-dialog/yes-no-dialog.component';
 
 @Injectable({
     providedIn: 'root'
@@ -11,7 +14,8 @@ export class CommonService {
 
 
     constructor(
-        public commonStoreFacade: CommonStoreFacade
+        public commonStoreFacade: CommonStoreFacade,
+        public dialog: MatDialog
     ) { }
 
     closeChatList(isActiveChatList: boolean, isMobile: boolean) {
@@ -40,6 +44,22 @@ export class CommonService {
         else {
             this.commonStoreFacade.deactivateMobile();
         }
+    }
+
+    openErrorDialog(title: string, message: string) {
+        this.dialog.open(ErrorDialogComponent, {
+            data: { errorTitle: title, errorMessage: message },
+            autoFocus: false
+        });
+    }
+
+    openYesNoDialog(title: string, message: string) {
+        const dialogRef = this.dialog.open(YesNoDialogComponent, {
+            data: { title: title, message: message },
+            autoFocus: false
+        });
+
+        return dialogRef.afterClosed();
     }
 
 }

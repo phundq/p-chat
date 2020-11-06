@@ -1,8 +1,6 @@
 .form-container{
-    width: 400px; 
-    margin:auto; 
-    margin-top: calc(50vh - 300px);
-    background: #f7f7f7; 
+    width: 333px; 
+    // background: #f7f7f7; 
     padding: 40px 20px;
     border-radius: 5px;
 }
@@ -15,7 +13,8 @@
 @media(max-width: 500px){
     .form-container{
         width: 70%;
-        margin-top: calc(50vh - 230px);
+        // margin-top: calc(50% - 230px);
     
 }
+
 }

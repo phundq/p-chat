@@ -1,0 +1,8 @@
+<div class="error-dialog-container">
+    <span mat-dialog-title class="center sub-header" style="border-bottom: 1px solid #1c64b7;">{{data.title}}</span>
+    <div style="text-align: center;" [innerHTML]="data.message"></div>
+    <div class="button-action">
+        <button class="yes-button" mat-raised-button (click)="handlerClickYes()">Yes</button>
+        <button class="no-button" mat-raised-button (click)="handlerClickNo()">No</button>
+    </div>
+</div>

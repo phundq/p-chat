@@ -7,5 +7,6 @@ export interface MessageItem{
 export interface MessageTestSocket{
     userId : string,
     room : string,
-    messenger : string
+    messenger : string,
+    time: Date,
 }

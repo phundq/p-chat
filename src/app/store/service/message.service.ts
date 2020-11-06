@@ -31,7 +31,7 @@ export class MessageService {
       let mesR: MessageItem = {
       avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU ",
       message: data.messenger,
-      time: new Date(),
+      time: data.time,
       isFriend: (data.userId === this.userID) ? false : true,
     }
     return mesR;

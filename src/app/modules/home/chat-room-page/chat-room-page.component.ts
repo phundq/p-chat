@@ -32,7 +32,8 @@ export class ChatRoomPageComponent implements OnInit {
     const mes: MessageTestSocket = {
       userId: this.userId,
       room: this.room,
-      messenger: data
+      messenger: data,
+      time: new Date(),
     }
     this.messageService.chat(mes);
     this.data = this.messageService.data;

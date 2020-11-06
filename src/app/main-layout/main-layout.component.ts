@@ -20,6 +20,7 @@ export class MainLayoutComponent implements OnInit, OnDestroy {
 
   public subscriptionAuth: Subscription;
   public subscriptionCommon: Subscription;
+  public subscriptionConfirm: Subscription;
 
   constructor(
     private authStoreFacade: AuthStoreFacade,
@@ -65,7 +66,15 @@ export class MainLayoutComponent implements OnInit, OnDestroy {
       this.router.navigate(['\login']);
     }
     else {
-      this.authStoreFacade.logout();
+      this.subscriptionConfirm = this.commonService.openYesNoDialog("Logout", "Are you sure you want to log out?")
+        .subscribe(
+          data => {
+            this.subscriptionConfirm = undefined;
+            if (data == true) {
+              this.authStoreFacade.logout();
+            }
+          }
+        )
     }
   }
 

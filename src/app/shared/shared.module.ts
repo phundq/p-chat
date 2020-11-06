@@ -14,6 +14,8 @@ import { SearchItemComponent } from './chat/search-item/search-item.component';
 import { ChatRoomComponent } from './chat/chat-room/chat-room.component';
 import { ChatMessageItemComponent } from './chat/chat-message-item/chat-message-item.component';
 import { ChatInputItemComponent } from './chat/chat-input-item/chat-input-item.component';
+import { YesNoDialogComponent } from './dialog/yes-no-dialog/yes-no-dialog.component';
+import { ErrorDialogComponent } from './dialog/error-dialog/error-dialog.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { ChatInputItemComponent } from './chat/chat-input-item/chat-input-item.c
     ChatRoomComponent,
     ChatMessageItemComponent,
     ChatInputItemComponent,
-    TimeAgoPipeCustom
+    TimeAgoPipeCustom,
+    YesNoDialogComponent,
+    ErrorDialogComponent
   ],
   imports: [
     CommonModule,

@@ -2,5 +2,8 @@
     <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
     <app-header class="header" [isLoginSuccess]="isLoginSuccess" (clickLoginOrLogout)="handlerClickLoginOrLogout()"
         (toggleChatList)="handlerToggleChatList($event)" style="width: 100%;"></app-header>
-    <router-outlet></router-outlet>
+    <div class="wrapper">
+        <router-outlet></router-outlet>
+    </div>
+    <app-footer class="footer"></app-footer>
 </div>

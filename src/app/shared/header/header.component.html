@@ -1,6 +1,6 @@
-<mat-toolbar class="bg-header">
+<mat-toolbar class="bg-primary">
   <mat-toolbar-row style="display: flex; justify-content: space-between;">
     <span style="color: #fff; font-weight: 400; font-size: larger; cursor: default;" class="no-copy" (click) = "goToHome()">PChat</span>
-    <button mat-raised-button style="color: rgb(103 101 101);" (click)="handlerClickLoginOrLogout()">{{isLoginSuccess?"Logout":"Login"}}</button>
+    <button mat-raised-button class="log-button" (click)="handlerClickLoginOrLogout()">{{isLoginSuccess?"Logout":"Login"}}</button>
   </mat-toolbar-row>
 </mat-toolbar>

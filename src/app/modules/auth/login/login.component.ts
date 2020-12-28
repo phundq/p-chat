@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   user?: User;
   isLoading: boolean = false;
   isLoginSuccess: boolean = false;
+  isLoginFail: boolean = false;
   formLogin: FormGroup;
   hide = true;
 
@@ -23,7 +24,7 @@ export class LoginComponent implements OnInit {
     private userService: UserService,
     private formBuilder: FormBuilder,
     private router: Router
-  ) {}
+  ) { }
 
   createForm() {
     this.formLogin = this.formBuilder.group({
@@ -37,6 +38,7 @@ export class LoginComponent implements OnInit {
       authFeature => {
         // this.user = authFeature.user;
         this.isLoading = authFeature.isLoading;
+        this.isLoginFail = authFeature.isLoginFail;
         // this.isLoginSuccess = authFeature.isLoginSuccess;
         // if(this.isLoginSuccess){
         //   this.router.navigate(['']);
@@ -46,9 +48,9 @@ export class LoginComponent implements OnInit {
     this.createForm();
   }
 
-  submit(userName: string, password: string){
-    console.log(userName);
+  submit(username: string, password: string) {
+    console.log(username);
     console.log(password);
-    this.authStoreFacade.login();
+    this.authStoreFacade.login(username, password);
   }
 }

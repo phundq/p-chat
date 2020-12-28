@@ -1,15 +1,15 @@
-import { FormsModule } from '@angular/forms';
-import { MainLayoutModule } from './main-layout/main-layout.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppStoreModule } from './store/app-store.module';
-import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { environment } from '../environments/environment';
-
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MainLayoutModule } from './main-layout/main-layout.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { AppStoreModule } from './store/app-store.module';
 import { AuthGuardService } from './store/service/guard/auth-guard';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +22,8 @@ import { AuthGuardService } from './store/service/guard/auth-guard';
     AppStoreModule,
     MainLayoutModule,
     AuthModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [AuthGuardService],
   bootstrap: [AppComponent]

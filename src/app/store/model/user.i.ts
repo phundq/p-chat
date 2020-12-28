@@ -8,3 +8,9 @@ export interface User {
     created?: Date;
     modified?: Date;
 }
+
+export interface AccessToken{
+    token: string;
+    expiresIn: number;
+    timeCreated: string;
+}

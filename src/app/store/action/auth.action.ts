@@ -1,5 +1,6 @@
-import { User } from './../model/user.i';
+import { of } from 'rxjs';
 import { createAction, props } from '@ngrx/store';
+import { AccessToken, User } from './../model/user.i';
 
 export enum EAuth {
     LOGIN = "[AUTH] login ...",
@@ -10,15 +11,16 @@ export enum EAuth {
 }
 
 export const login = createAction(
-    EAuth.LOGIN
+    EAuth.LOGIN,
+    props<{ username: string, password: string }>()
 );
 export const loginSuccess = createAction(
     EAuth.LOGIN_SUCCESS,
-    props<{ user: User }>()
+    props<{ user: User, accessToken: AccessToken }>()
 );
 export const loginFail = createAction(
     EAuth.LOGIN_FAIL,
-    props<{message: string}>()
+    props<{ message: string }>()
 );
 export const logout = createAction(
     EAuth.LOGOUT

@@ -33,8 +33,12 @@
                     Name is required.
                 </div>
             </div>
+            <div class="login-fail-box" *ngIf="isLoginFail">
+                <span class="login-fail">Username or password not correct</span>
+            </div>
             <div class="form-group" style="text-align: center;">
-                <button mat-flat-button class="bg-primary" style="color: #fff;" (click)="submit(userName.value, password.value)"
+                <button mat-flat-button class="bg-primary" style="color: #fff;"
+                    (click)="submit(userName.value, password.value)"
                     [disabled]="formLogin.pristine || formLogin.invalid">Login</button>
             </div>
         </form>

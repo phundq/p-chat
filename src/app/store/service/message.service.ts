@@ -12,7 +12,7 @@ export class MessageService {
   constructor() { }
 
   setupSocketConnection() {
-    this.socket = socketIO.connect('http://localhost:3000');
+    this.socket = socketIO.connect('http://192.168.4.220:3000');
     this.socket.on('connect', () => {
       console.log('connected');
     });

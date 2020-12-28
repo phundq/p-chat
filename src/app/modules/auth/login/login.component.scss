@@ -10,6 +10,15 @@
     margin-bottom: 20px;
 }
 
+.login-fail-box{
+    text-align: center;
+    color: red;
+}
+
+.login-fail{
+    color: red;
+}
+
 @media(max-width: 500px){
     .form-container{
         width: 70%;

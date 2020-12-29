@@ -1,3 +1,4 @@
+import { AuthStoreFacade } from './../store-facade/auth-store-facade';
 import { ErrorDialogComponent } from './../../shared/dialog/error-dialog/error-dialog.component';
 import { isActivateChatList } from './../selector/common.selector';
 import { Subscription } from 'rxjs';
@@ -5,6 +6,7 @@ import { Injectable } from '@angular/core';
 import { CommonStoreFacade } from './../store-facade/common-store-facade';
 import { MatDialog } from '@angular/material/dialog';
 import { YesNoDialogComponent } from 'src/app/shared/dialog/yes-no-dialog/yes-no-dialog.component';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
@@ -15,6 +17,7 @@ export class CommonService {
 
     constructor(
         public commonStoreFacade: CommonStoreFacade,
+        public authStoreFacade: AuthStoreFacade,
         public dialog: MatDialog
     ) { }
 
@@ -60,6 +63,24 @@ export class CommonService {
         });
 
         return dialogRef.afterClosed();
+    }
+
+    getAccessToken() {
+        let isLoginSuccess: Boolean = false;
+        let token = null;
+        this.authStoreFacade.selectAuthFeature().pipe(distinctUntilChanged())
+            .subscribe(
+                (data) => {
+                    isLoginSuccess = data.isLoginSuccess;
+                    if (isLoginSuccess) {
+                        console.log(data.accessToken.token);
+
+                        token = data.accessToken.token;
+                    }
+                }
+            )
+            .unsubscribe();
+        return token;
     }
 
 }

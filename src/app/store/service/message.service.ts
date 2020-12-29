@@ -1,3 +1,4 @@
+import { CommonService } from './common.service';
 import { MessageTestSocket, MessageItem } from './../model/message.i';
 import * as socketIO from 'socket.io-client';
 import { Injectable } from '@angular/core';
@@ -9,10 +10,20 @@ export class MessageService {
   dataRender: MessageItem[];
   count = 0;
   userID = "";
-  constructor() { }
+  constructor(private commonService: CommonService) { }
 
   setupSocketConnection() {
-    this.socket = socketIO.connect('http://192.168.4.220:3000');
+    let socketOptions = {
+      transportOptions: {
+        polling: {
+          extraHeaders: {
+            Authorization: 'Bearer ' + this.commonService.getAccessToken(), //'Bearer h93t4293t49jt34j9rferek...'
+          }
+        }
+      },
+    };
+
+    this.socket = socketIO.connect('http://192.168.4.220:3000', socketOptions);
     this.socket.on('connect', () => {
       console.log('connected');
     });
@@ -29,13 +40,13 @@ export class MessageService {
     this.data.push(msg);
     this.dataRender = this.data.map((data) => {
       let mesR: MessageItem = {
-      avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU ",
-      message: data.messenger,
-      time: data.time,
-      isFriend: (data.userId === this.userID) ? false : true,
-    }
-    return mesR;
-  })
+        avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU ",
+        message: data.messenger,
+        time: data.time,
+        isFriend: (data.userId === this.userID) ? false : true,
+      }
+      return mesR;
+    })
     console.log(this.data);
 
   }

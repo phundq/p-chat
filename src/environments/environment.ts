@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: "http://localhost:3000/",
+  // baseUrl: "http://localhost:3000/",
+  baseUrl: "http://192.168.4.220:3000/",
   // firebase: {
   //   apiKey: 'AIzaSyBqD9ctCO2DDFRrIXjpYN5DQhl7V1CegkA',
   //   authDomain: 'p-chat-c976f.firebaseapp.com',
@@ -14,7 +15,7 @@ export const environment = {
   //   messagingSenderId: '925858112180',
   //   appId: '1:925858112180:web:c53c6b163f50d82572ede1',
   //   measurementId: 'G-PGVQ1JNNP0'
-// }
+  // }
 };
 
 /*

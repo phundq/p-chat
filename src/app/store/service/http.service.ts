@@ -55,6 +55,16 @@ export class HttpService {
         })
     }
 
+    handlerError(result: any) {
+        if (result.normalErrors && result.normalErrors.length > 0) {
+            return true;
+        }
+        if (result.badErrors && result.badErrors.length > 0) {
+            return true;
+        }
+        return false;
+    }
+
     // get(reqUrl: string, reqParam?: any, reqBody?: any) {
     //     var option = { ...this.httpOptions };
     //     option.param = (reqParam) ? reqParam : null;

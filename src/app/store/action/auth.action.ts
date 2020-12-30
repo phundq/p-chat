@@ -7,6 +7,7 @@ export enum EAuth {
     LOGIN_SUCCESS = "[AUTH] login success",
     LOGIN_FAIL = "[AUTH] login fail",
     LOGOUT = "[AUTH] logout",
+    TOKEN_RENEW = "[AUTH] renew",
 
 }
 
@@ -24,5 +25,9 @@ export const loginFail = createAction(
 );
 export const logout = createAction(
     EAuth.LOGOUT
+);
+export const renewToken = createAction(
+    EAuth.TOKEN_RENEW,
+    props<{ accessToken: AccessToken }>()
 );
 

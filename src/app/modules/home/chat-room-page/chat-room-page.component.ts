@@ -11,12 +11,14 @@ export class ChatRoomPageComponent implements OnInit {
 
   constructor(public messageService: MessageService) { }
 
-  messageItems: MessageItem[] = []
+  messageItems: MessageItem[] = [];
   ngOnInit(): void {
     this.messageService.setupSocketConnection();
     this.userId =  this.randomString(6, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
     this.messageService.joinRoom(this.room);
     this.messageService.chatClient();
+    this.messageService.handlerError();
+    this.messageService.handlerNewToken();
     this.messageService.setUserId(this.userId);
     
   }

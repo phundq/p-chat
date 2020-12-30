@@ -1,3 +1,5 @@
+import { AccessToken } from './../model/user.i';
+import { renewToken } from './../action/auth.action';
 import { AuthStoreFacade } from './../store-facade/auth-store-facade';
 import { ErrorDialogComponent } from './../../shared/dialog/error-dialog/error-dialog.component';
 import { isActivateChatList } from './../selector/common.selector';
@@ -83,4 +85,11 @@ export class CommonService {
         return token;
     }
 
+    logout() {
+        this.authStoreFacade.logout();
+    }
+
+    renewToken(accessToken: AccessToken) {
+        this.authStoreFacade.renewToken(accessToken)
+    }
 }

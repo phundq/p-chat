@@ -19,6 +19,9 @@ export class MainLayoutComponent implements OnInit, OnDestroy {
   isMobile: boolean;
 
   public subscriptionAuth: Subscription;
+  public subscriptionIsLoading: Subscription;
+  public subscriptionIsLoginSuccess: Subscription;
+  public subscriptionLoginFail: Subscription;
   public subscriptionCommon: Subscription;
   public subscriptionConfirm: Subscription;
 
@@ -30,10 +33,14 @@ export class MainLayoutComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.subscriptionAuth = this.authStoreFacade.selectAuthFeature().subscribe(
-      authFeature => {
-        this.isLoginSuccess = authFeature.isLoginSuccess;
-        this.isLoading = authFeature.isLoading
+    this.subscriptionIsLoading = this.authStoreFacade.selectIsLoading().subscribe(
+      loading => {
+        this.isLoading = loading
+      }
+    );
+    this.subscriptionIsLoginSuccess = this.authStoreFacade.selectIsLoginSuccess().subscribe(
+      loginSuccess => {
+        this.isLoginSuccess = loginSuccess;
         if (this.isLoginSuccess) {
           this.router.navigate(['']);
         }
@@ -56,6 +63,10 @@ export class MainLayoutComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     if (this.subscriptionAuth)
       this.subscriptionAuth.unsubscribe();
+    if (this.subscriptionIsLoading)
+      this.subscriptionIsLoading.unsubscribe();
+    if (this.subscriptionIsLoginSuccess)
+      this.subscriptionIsLoginSuccess.unsubscribe();
     if (this.subscriptionCommon)
       this.subscriptionCommon.unsubscribe();
   }

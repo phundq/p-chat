@@ -11,6 +11,6 @@ export interface User {
 
 export interface AccessToken{
     token: string;
-    expiresIn: number;
+    expiresIn: string;
     timeCreated: string;
 }

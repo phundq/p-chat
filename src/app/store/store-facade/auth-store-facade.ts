@@ -1,4 +1,6 @@
-import { getAuthFeature, getAutToken } from './../selector/auth.selector';
+import { AccessToken } from './../model/user.i';
+import { renewToken } from './../action/auth.action';
+import { getAuthFeature, getAutToken, getIsLoading, getIsLoginFail, getIsLoginSuccess, getUser } from './../selector/auth.selector';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as AuthAction from '../action/auth.action';
@@ -17,14 +19,28 @@ export class AuthStoreFacade {
         this.store.dispatch(AuthAction.logout());
     }
 
+    renewToken(accessToken: AccessToken) {
+        this.store.dispatch(AuthAction.renewToken({ accessToken }))
+    }
+
 
     selectAuthFeature() {
         return this.store.select(getAuthFeature);
     }
 
+    selectIsLoading() {
+        return this.store.select(getIsLoading);
+    }
+    selectIsLoginSuccess() {
+        return this.store.select(getIsLoginSuccess);
+    }
+    selectIsLoginFail() {
+        return this.store.select(getIsLoginFail);
+    }
+    selectUser() {
+        return this.store.select(getUser);
+    }
     selectAuthToken() {
         return this.store.select(getAutToken);
     }
-
-
 }

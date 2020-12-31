@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `pchat` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `pchat`;
 -- MySQL dump 10.13  Distrib 8.0.21, for Win64 (x86_64)
 --
 -- Host: localhost    Database: pchat
@@ -26,7 +24,7 @@ DROP TABLE IF EXISTS `friend`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `friend` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `is_block` bit(1) DEFAULT NULL,
+  `is_block` bit(1) DEFAULT b'0',
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   `user_id` int NOT NULL,
@@ -148,15 +146,15 @@ DROP TABLE IF EXISTS `user`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(100) DEFAULT NULL,
-  `password` varchar(500) DEFAULT NULL,
-  `full_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `is_active` bit(1) DEFAULT NULL,
-  `role` varchar(45) DEFAULT NULL,
-  `created` datetime DEFAULT NULL,
-  `modified` datetime DEFAULT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `full_name` varchar(255) NOT NULL,
+  `role` varchar(255) NOT NULL DEFAULT 'USER',
+  `is_active` tinyint NOT NULL DEFAULT '1',
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -165,6 +163,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'phu','123456','phú','ADMIN',1,'2020-11-11 03:00:51','2020-11-11 03:00:51'),(2,'phu@gmail.com','123456','Quốc Phú','USER',1,'2020-11-12 01:12:29','2020-11-12 01:12:29'),(3,'phu2@gmail.com','111111','Phu 2','ADMIN',1,'2020-11-12 02:03:40','2020-11-12 08:55:44');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -208,4 +207,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-10 16:06:26
+-- Dump completed on 2020-12-31 17:33:16

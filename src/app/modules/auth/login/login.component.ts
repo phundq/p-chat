@@ -1,9 +1,10 @@
-import { AuthStoreFacade } from './../../../store/store-facade/auth-store-facade';
-import { UserService } from './../../../store/service/user.service';
-import { User } from './../../../store/model/user.i';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { User } from './../../../store/model/user.i';
+import { UserService } from './../../../store/service/user.service';
+import { AuthStoreFacade } from './../../../store/store-facade/auth-store-facade';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,13 @@ export class LoginComponent implements OnInit {
   isLoginFail: boolean = false;
   formLogin: FormGroup;
   hide = true;
+
+  public subscriptionAuth: Subscription;
+  public subscriptionIsLoading: Subscription;
+  public subscriptionIsLoginSuccess: Subscription;
+  public subscriptionIsLoginFail: Subscription;
+  public subscriptionCommon: Subscription;
+  public subscriptionConfirm: Subscription;
 
   constructor(
     private authStoreFacade: AuthStoreFacade,
@@ -34,15 +42,14 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authStoreFacade.selectAuthFeature().subscribe(
-      authFeature => {
-        // this.user = authFeature.user;
-        this.isLoading = authFeature.isLoading;
-        this.isLoginFail = authFeature.isLoginFail;
-        // this.isLoginSuccess = authFeature.isLoginSuccess;
-        // if(this.isLoginSuccess){
-        //   this.router.navigate(['']);
-        // }
+    this.subscriptionIsLoading = this.authStoreFacade.selectIsLoading().subscribe(
+      loading => {
+        this.isLoading = loading
+      }
+    );
+    this.subscriptionIsLoginFail = this.authStoreFacade.selectIsLoginFail().subscribe(
+      loading => {
+        this.isLoginFail = loading
       }
     );
     this.createForm();

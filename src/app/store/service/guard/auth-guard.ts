@@ -1,14 +1,14 @@
-import { AuthStoreFacade } from '../../store-facade/auth-store-facade';
 import { Injectable } from '@angular/core';
-import { Router, CanActivate } from '@angular/router';
+import { CanActivate, Router } from '@angular/router';
+import { AuthStoreFacade } from '../../store-facade/auth-store-facade';
 @Injectable()
 export class AuthGuardService implements CanActivate {
     public canActive: boolean = false;
     constructor(public authStoreFacade: AuthStoreFacade, public router: Router) { }
     canActivate(): boolean {
-        this.authStoreFacade.selectAuthFeature().subscribe(
+        this.authStoreFacade.selectIsLoginSuccess().subscribe(
             data => {
-                this.canActive = data.isLoginSuccess;
+                this.canActive = data;
             }
         )
         if (this.canActive = undefined || !this.canActive) {

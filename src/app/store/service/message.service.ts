@@ -1,5 +1,5 @@
 import { AccessToken } from './../model/user.i';
-import { SocketConstant } from './../../shared/constant/socket.constant';
+import { SocketEmitConstant, SocketConstant } from './../../shared/constant/socket.constant';
 import { CommonService } from './common.service';
 import { MessageTestSocket, MessageItem } from './../model/message.i';
 import * as socketIO from 'socket.io-client';
@@ -13,7 +13,7 @@ export class MessageService {
   data: MessageTestSocket[] = [];
   dataRender: MessageItem[];
   count = 0;
-  userID = "";
+  public room: string = SocketConstant.CHAT_ROOM;
   constructor(private commonService: CommonService) { }
 
   setupSocketConnection() {
@@ -27,23 +27,25 @@ export class MessageService {
         }
       },
     };
-    //Token test expiresIn Time: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InBodUBnbWFpbC5jb20iLCJzdWIiOjIsImlhdCI6MTYwOTIzNDMxMywiZXhwIjoxNjA5MjM3OTEzfQ.95ENFe6Z239ypG8eEhcTajgIRRwdMD4pAehz4AVehso
+    //Token test out expiresIn Time: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InBodUBnbWFpbC5jb20iLCJzdWIiOjIsImlhdCI6MTYwOTIzNDMxMywiZXhwIjoxNjA5MjM3OTEzfQ.95ENFe6Z239ypG8eEhcTajgIRRwdMD4pAehz4AVehso
     this.socket = socketIO.connect('http://192.168.4.220:3000', socketOptions);
     this.socket.on('connect', () => {
       console.log('connected');
     });
   }
   chat(data: MessageTestSocket) {
-    this.socket.emit(SocketConstant.CHAT_TO_SERVER, data);
+    this.socket.emit(SocketEmitConstant.CHAT_TO_SERVER, data);
   }
   chatClient() {
-    this.socket.on(SocketConstant.CHAT_TO_CLIENT, (data) => {
+    this.socket.on(SocketEmitConstant.CHAT_TO_CLIENT, (data) => {
+      console.log(data);
+      
       this.receiveChat(data);
     });
   }
 
   handlerError() {
-    this.socket.on(SocketConstant.TOKEN_INVALID, (data) => {
+    this.socket.on(SocketEmitConstant.TOKEN_INVALID, (data) => {
       console.log(data);
       this.commonService.logout();
       this.commonService.openErrorDialog("System error", "The login session expires");
@@ -51,9 +53,12 @@ export class MessageService {
   }
 
   handlerNewToken() {
-    this.socket.on(SocketConstant.TOKEN_RENEW, (data) => {
-      console.log(data);
-      this.commonService.renewToken(data)
+    this.socket.on(SocketEmitConstant.TOKEN_RENEW, (data) => {
+      pipe(distinctUntilChanged())
+      this.commonService.renewToken(data);
+      this.changeTokenHeader(data.token);
+      this.resetConnection();
+
     });
   }
 
@@ -64,18 +69,28 @@ export class MessageService {
         avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU ",
         message: data.messenger,
         time: data.time,
-        isFriend: (data.userId === this.userID) ? false : true,
+        isFriend: (data.senderId === this.commonService.getUserId()) ? false : true,
       }
       return mesR;
     })
     console.log(this.data);
 
   }
-  joinRoom(room: string) {
-    this.socket.emit(SocketConstant.JOIN_ROOM, room);
+  joinRoom() {
+    this.socket.emit(SocketEmitConstant.JOIN_ROOM, this.room);
   }
 
-  setUserId(data: string) {
-    this.userID = data;
+  changeTokenHeader(token: string) {
+    this.socket.io.opts.transportOptions.polling.extraHeaders.Authorization = "Bearer " + token;
+  }
+
+  resetConnection() {
+    if (this.socket)
+      this.socket.disconnect();
+    this.setupSocketConnection();
+    this.joinRoom();
+    this.chatClient();
+    this.handlerError();
+    this.handlerNewToken();
   }
 }

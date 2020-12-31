@@ -75,14 +75,28 @@ export class CommonService {
                 (data) => {
                     isLoginSuccess = data.isLoginSuccess;
                     if (isLoginSuccess) {
-                        console.log(data.accessToken.token);
-
                         token = data.accessToken.token;
                     }
                 }
             )
             .unsubscribe();
         return token;
+    
+    }
+    getUserId() {
+        let isLoginSuccess: Boolean = false;
+        let userId = null;
+        this.authStoreFacade.selectAuthFeature().pipe(distinctUntilChanged())
+            .subscribe(
+                (data) => {
+                    isLoginSuccess = data.isLoginSuccess;
+                    if (isLoginSuccess) {
+                        userId = data.user.id;
+                    }
+                }
+            )
+            .unsubscribe();
+        return userId;
     }
 
     logout() {

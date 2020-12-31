@@ -1,4 +1,4 @@
-export enum SocketConstant {
+export enum SocketEmitConstant {
     // CHAT
     JOIN_ROOM = "joinRoom",
     CHAT_TO_SERVER = "chatToServer",
@@ -7,4 +7,9 @@ export enum SocketConstant {
     // TOKEN
     TOKEN_INVALID = "tokenInvalid",
     TOKEN_RENEW = "joinRoom",
+}
+
+export enum SocketConstant {
+    // CHAT
+    CHAT_ROOM = "aRoom",
 }

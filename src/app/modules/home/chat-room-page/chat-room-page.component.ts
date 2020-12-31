@@ -1,6 +1,7 @@
-import { MessageService } from './../../../store/service/message.service';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MessageItem, MessageTestSocket } from './../../../store/model/message.i';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { CommonService } from './../../../store/service/common.service';
+import { MessageService } from './../../../store/service/message.service';
 
 @Component({
   selector: 'app-chat-room-page',
@@ -9,45 +10,42 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class ChatRoomPageComponent implements OnInit {
 
-  constructor(public messageService: MessageService) { }
+  constructor(
+    public messageService: MessageService,
+    public commonService: CommonService
+  ) { }
 
   messageItems: MessageItem[] = [];
   ngOnInit(): void {
-    this.messageService.setupSocketConnection();
-    this.userId =  this.randomString(6, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
-    this.messageService.joinRoom(this.room);
-    this.messageService.chatClient();
-    this.messageService.handlerError();
-    this.messageService.handlerNewToken();
-    this.messageService.setUserId(this.userId);
-    
+    this.messageService.resetConnection();
+
   }
 
   userId: string = '';
   data: MessageTestSocket[] = [];
-  room :string = 'aRoom';
   @Output() send = new EventEmitter<string>();
 
-  handlerClickSend(data: string){
+  handlerClickSend(data: string) {
     console.log(data);
-    this.send.emit(data);    
+    this.send.emit(data);
     const mes: MessageTestSocket = {
-      userId: this.userId,
-      room: this.room,
+      senderId: this.commonService.getUserId(),
+      receiveId: 2,
+      room: this.messageService.room,
       messenger: data,
       time: new Date(),
     }
     this.messageService.chat(mes);
     this.data = this.messageService.data;
     console.log(this.messageService.dataRender);
-    
+
   }
 
   randomString(length, chars) {
     var result = '';
     for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
     return result;
-}
+  }
 
 
 

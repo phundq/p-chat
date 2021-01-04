@@ -9,4 +9,5 @@ export const getIsLoading = createSelector(authFeature, (state: AuthState) => st
 export const getIsLoginSuccess = createSelector(authFeature, (state: AuthState) => state.isLoginSuccess);
 export const getIsLoginFail = createSelector(authFeature, (state: AuthState) => state.isLoginFail);
 export const getUser = createSelector(authFeature, (state: AuthState) => state.user);
+export const getFriends = createSelector(authFeature, (state: AuthState) => state.user.friends);
 export const getAutToken = createSelector(authFeature, (state: AuthState) => state.accessToken);

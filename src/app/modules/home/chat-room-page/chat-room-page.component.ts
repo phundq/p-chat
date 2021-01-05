@@ -1,3 +1,5 @@
+import { ChatService } from './../../../store/service/chat.service';
+import { Friend } from './../../../store/model/user.i';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MessageItem, MessageTestSocket } from './../../../store/model/message.i';
 import { CommonService } from './../../../store/service/common.service';
@@ -12,7 +14,8 @@ export class ChatRoomPageComponent implements OnInit {
 
   constructor(
     public messageService: MessageService,
-    public commonService: CommonService
+    public commonService: CommonService,
+    public chatService: ChatService,
   ) { }
 
   messageItems: MessageItem[] = [];
@@ -21,16 +24,18 @@ export class ChatRoomPageComponent implements OnInit {
 
   }
 
-  userId: string = '';
   data: MessageTestSocket[] = [];
   @Output() send = new EventEmitter<string>();
 
   handlerClickSend(data: string) {
+    let friend: Friend = this.chatService.getFriend();
+    if (friend == undefined || friend == null)
+      return;
     console.log(data);
     this.send.emit(data);
     const mes: MessageTestSocket = {
       senderId: this.commonService.getUserId(),
-      receiveId: 2,
+      receiveId: friend.friendId,
       room: this.messageService.room,
       messenger: data,
       time: new Date(),

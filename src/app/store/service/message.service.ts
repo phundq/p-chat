@@ -66,6 +66,8 @@ export class MessageService {
     this.data.push(msg);
     this.dataRender = this.data.map((data) => {
       let mesR: MessageItem = {
+        senderId: data.senderId,
+        receiveId: data.receiveId,
         avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU ",
         message: data.messenger,
         time: data.time,

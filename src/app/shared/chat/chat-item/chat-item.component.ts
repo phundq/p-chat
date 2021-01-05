@@ -1,4 +1,4 @@
-import { User } from './../../../store/model/user.i';
+import { User, Friend } from './../../../store/model/user.i';
 import { Component, OnInit, Input, Output } from '@angular/core';
 
 @Component({
@@ -10,12 +10,13 @@ export class ChatItemComponent implements OnInit {
 
   constructor() { }
 
-  @Input() chatIem: User = {
+  @Input() chatIem: Friend = {
     id: 0,
     username: "username",
     avatar: "",
+    friendId: 1,
     fullName: "Full Name",
-    isOnline: false
+    isOnLine: false
   }
 
   ngOnInit(): void {

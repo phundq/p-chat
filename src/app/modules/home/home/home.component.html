@@ -13,8 +13,9 @@
     <div class="chat-container">
         <mat-drawer-container [hasBackdrop]="false" style="overflow: hidden;">
             <mat-drawer #drawer [mode]="'side'" [opened]="isActiveChatList">
-                <app-chat-list (search)="handlerClickSearch($event)" (getChatItem)="handlerClickGetChatItem($event)"
-                    (closeChatList)="handlerToggleChatList()" class="chat-list-container">
+                <app-chat-list [chatList]="chatList" (search)="handlerClickSearch($event)"
+                    (getChatItem)="handlerClickGetChatItem($event)" (closeChatList)="handlerToggleChatList()"
+                    class="chat-list-container">
                 </app-chat-list>
             </mat-drawer>
             <mat-drawer-content class="content-container">

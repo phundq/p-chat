@@ -1,4 +1,4 @@
-import { User } from './../../../store/model/user.i';
+import { User, Friend } from './../../../store/model/user.i';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -14,134 +14,152 @@ export class ChatListComponent implements OnInit {
   }
 
   @Output() search = new EventEmitter<string>();
-  @Output() getChatItem = new EventEmitter<User>();
-  @Output() closeChatList = new EventEmitter<User>();
-  @Input() chatList: User[] = [
+  @Output() getChatItem = new EventEmitter<Friend>();
+  @Output() closeChatList = new EventEmitter<Friend>();
+  @Input() chatList: Friend[] = [
     {
       id: 1,
       username: "phu@gmail.com",
       avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU ",
       fullName: "Quốc Phú",
-      isOnline: false
+      friendId: 1,
+      isOnLine: false
     },
     {
       id: 1,
       username: "phu@gmail.com",
       avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU ",
       fullName: "Quốc Phú",
-      isOnline: true
+      friendId: 1,
+      isOnLine: true
     },
     {
       id: 1,
       username: "phu@gmail.com",
       avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU ",
       fullName: "Quốc Phú",
-      isOnline: false
+      friendId: 1,
+      isOnLine: false
     },
     {
       id: 1,
       username: "phu@gmail.com",
       avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU ",
       fullName: "Quốc Phú",
-      isOnline: true
+      friendId: 1,
+      isOnLine: true
     },
     {
       id: 1,
       username: "phu@gmail.com",
       avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU ",
       fullName: "Quốc Phú",
-      isOnline: true
+      friendId: 1,
+      isOnLine: true
     },
     {
       id: 1,
       username: "phu@gmail.com",
       avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU ",
       fullName: "Quốc Phú",
-      isOnline: true
+      friendId: 1,
+      isOnLine: true
     },
     {
       id: 1,
       username: "phu@gmail.com",
       avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU ",
       fullName: "Quốc Phú",
-      isOnline: true
+      friendId: 1,
+      isOnLine: true
     },
     {
       id: 1,
       username: "phu@gmail.com",
       avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU ",
       fullName: "Quốc Phú",
-      isOnline: true
+      friendId: 1,
+      isOnLine: true
     },
     {
       id: 1,
       username: "phu@gmail.com",
       avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU ",
       fullName: "Quốc Phú",
-      isOnline: true
+      friendId: 1,
+      isOnLine: true
     },
     {
       id: 1,
       username: "phu@gmail.com",
       avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU ",
       fullName: "Quốc Phú",
-      isOnline: true
+      friendId: 1,
+      isOnLine: true
     },
     {
       id: 1,
       username: "phu@gmail.com",
       avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU ",
       fullName: "Quốc Phú",
-      isOnline: true
+      friendId: 1,
+      isOnLine: true
     },
     {
       id: 1,
       username: "phu@gmail.com",
       avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU ",
       fullName: "Quốc Phú",
-      isOnline: true
+      friendId: 1,
+      isOnLine: true
     },
     {
       id: 1,
       username: "phu@gmail.com",
       avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU ",
       fullName: "Quốc Phú",
-      isOnline: true
+      friendId: 1,
+      isOnLine: true
     },
     {
       id: 1,
       username: "phu@gmail.com",
       avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU ",
       fullName: "Quốc Phú",
-      isOnline: true
+      friendId: 1,
+      isOnLine: true
     },
     {
       id: 1,
       username: "phu@gmail.com",
       avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU ",
       fullName: "Quốc Phú",
-      isOnline: true
+      friendId: 1,
+      isOnLine: true
     },
     {
       id: 1,
       username: "phu@gmail.com",
       avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU ",
       fullName: "Quốc Phú",
-      isOnline: true
+      friendId: 1,
+      isOnLine: true
     },
     {
       id: 1,
       username: "phu@gmail.com",
       avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU ",
       fullName: "Quốc Phú",
-      isOnline: true
+      friendId: 1,
+      isOnLine: true
     },
     {
       id: 1,
       username: "phu@gmail.com",
       avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnKVKzjbASTv2fR09U_wghz4wfuXFzcXNEVw&usqp=CAU ",
       fullName: "Quốc Phú",
-      isOnline: true
+      friendId: 1,
+      isOnLine: true
     },
 
 
@@ -151,7 +169,7 @@ export class ChatListComponent implements OnInit {
     this.search.emit(data);
   }
 
-  handlerClickChatItem(data: User) {
+  handlerClickChatItem(data: Friend) {
     this.getChatItem.emit(data);
   }
 

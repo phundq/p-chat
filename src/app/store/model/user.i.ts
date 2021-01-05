@@ -17,10 +17,11 @@ export class Friend {
     avatar?: string;
     role?: string;
     isBlock?: boolean;
-    userId: number;
+    userId?: number;
     friendId: number;
     created?: Date;
     modified?: Date;
+    isOnLine?: Boolean;
 }
 
 

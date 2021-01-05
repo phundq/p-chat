@@ -1,4 +1,6 @@
 export interface MessageItem {
+    senderId: number,
+    receiveId: number,
     avatar: string;
     message: string;
     time: Date;

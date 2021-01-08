@@ -66,7 +66,7 @@ export class ChatMessageComponent implements OnInit, AfterViewInit, OnChanges {
 
   scrollToBottom(): void {
     try {
-      this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+      this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight - this.myScrollContainer.nativeElement.clientHeight;
       this.commonService.setHasNotNewMessage();
     } catch (err) { }
   }

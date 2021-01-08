@@ -106,4 +106,12 @@ export class CommonService {
     renewToken(accessToken: AccessToken) {
         this.authStoreFacade.renewToken(accessToken)
     }
+
+    setHasNewMessage(){
+        this.commonStoreFacade.setHasNewMessage();
+    }
+
+    setHasNotNewMessage(){
+        this.commonStoreFacade.setHasNotNewMessage();
+    }
 }

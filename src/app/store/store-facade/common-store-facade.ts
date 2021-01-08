@@ -1,4 +1,4 @@
-import { activateMobile, deactivateMobile } from './../action/common.action';
+import { activateMobile, deactivateMobile, setHasNewMessage, setHasNotNewMessage } from './../action/common.action';
 import { getCommonFeature, isActivateChatList, isMobile } from './../selector/common.selector';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
@@ -25,6 +25,14 @@ export class CommonStoreFacade {
 
     deactivateMobile() {
         this.store.dispatch(CommonAction.deactivateMobile());
+    }
+
+    setHasNewMessage() {
+        this.store.dispatch(CommonAction.setHasNewMessage());
+    }
+
+    setHasNotNewMessage() {
+        this.store.dispatch(CommonAction.setHasNotNewMessage());
     }
 
     // SELECT

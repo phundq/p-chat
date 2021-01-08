@@ -7,14 +7,17 @@
         </div>
         <mat-icon>more_vert</mat-icon>
     </div>
-    <div class="chat-message-container" #scrollMessage>
+    <div class="chat-message-container" #scrollMessage (scroll)="onScroll()">
         <div class="chat-message">
             <div class="chat-message-item" *ngFor="let messageItem of messageItems">
-                <app-chat-message-item [messageItem] = "messageItem"></app-chat-message-item>
+                <app-chat-message-item [messageItem]="messageItem"></app-chat-message-item>
             </div>
         </div>
     </div>
     <div class="input-container">
-        <app-chat-input-item (send) ="handlerClickSend($event)"></app-chat-input-item>
+        <app-chat-input-item (send)="handlerClickSend($event)"></app-chat-input-item>
     </div>
+</div>
+<div id="scroll-bottom" class="no-copy" (click)="scrollToBottom()" [class.hide]="!isShowScrollButton">
+    <mat-icon>keyboard_arrow_down</mat-icon>
 </div>

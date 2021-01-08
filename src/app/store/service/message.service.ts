@@ -34,13 +34,15 @@ export class MessageService {
     });
   }
   chat(data: MessageTestSocket) {
+    this.receiveChat(data);
     this.socket.emit(SocketEmitConstant.CHAT_TO_SERVER, data);
   }
   chatClient() {
     this.socket.on(SocketEmitConstant.CHAT_TO_CLIENT, (data) => {
-      console.log(data);
-      
-      this.receiveChat(data);
+      if (data.senderId != this.commonService.getUserId()) {
+        this.receiveChat(data);
+      }
+      this.commonService.setHasNewMessage();
     });
   }
 

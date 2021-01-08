@@ -3,10 +3,12 @@ import * as CommonAction from '../action/common.action';
 export interface CommonState {
     isActiveChatList?: boolean,
     isMobile?: boolean,
+    isHasNewMessage?: boolean,
 }
 
 const initCommonState: CommonState = {
-    isActiveChatList: true
+    isActiveChatList: true,
+    isHasNewMessage: false,
 }
 
 export const commonReducer = createReducer<CommonState>(
@@ -15,4 +17,6 @@ export const commonReducer = createReducer<CommonState>(
     on(CommonAction.deactivateChatList, (state) => ({ ...state, isActiveChatList: false })),
     on(CommonAction.activateMobile, state => ({ ...state, isMobile: true })),
     on(CommonAction.deactivateMobile, (state) => ({ ...state, isMobile: false })),
+    on(CommonAction.setHasNewMessage, (state) => ({ ...state, isHasNewMessage: true })),
+    on(CommonAction.setHasNotNewMessage, (state) => ({ ...state, isHasNewMessage: false })),
 );

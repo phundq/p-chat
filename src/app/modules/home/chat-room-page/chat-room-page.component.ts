@@ -1,6 +1,7 @@
+import { ChatMessageComponent } from './../../../shared/chat/chat-message/chat-message.component';
 import { ChatService } from './../../../store/service/chat.service';
 import { Friend } from './../../../store/model/user.i';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { MessageItem, MessageTestSocket } from './../../../store/model/message.i';
 import { CommonService } from './../../../store/service/common.service';
 import { MessageService } from './../../../store/service/message.service';
@@ -12,6 +13,7 @@ import { MessageService } from './../../../store/service/message.service';
 })
 export class ChatRoomPageComponent implements OnInit {
 
+  @ViewChild('chatMessage', {static: true}) public chatMessage: ChatMessageComponent;
   constructor(
     public messageService: MessageService,
     public commonService: CommonService,
